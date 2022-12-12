@@ -88,3 +88,42 @@
 //     input.value < randomNum ? console.log("too low") : console.log("too high");
 //   }
 // });
+
+//HOMEWORK:
+
+//task1:
+
+const btn = document.querySelector(".modal-btn");
+const modalWindow = document.querySelector(".modal");
+const background = document.querySelector(".background");
+
+btn.addEventListener("click", () => {
+  modalWindow.classList.remove("hidden");
+  background.classList.remove("hidden");
+});
+
+//task2:
+
+const taskInput = document.querySelector("#task-input");
+const taskBtn = document.querySelector("#task-btn");
+const validColors = ["red", "blue", "green", "black", "white"];
+
+taskBtn.addEventListener("click", () => {
+  if (!validColors.includes(taskInput.value.toLowerCase())) {
+    alert("please enter valid color");
+  } else {
+    document.body.style.backgroundColor = taskInput.value;
+  }
+});
+
+//task3:
+
+const task3Input = document.querySelector("#task3-input");
+const task3Btn = document.querySelector("#task3-btn");
+
+task3Btn.addEventListener("click", () => {
+  let temp = 0;
+  const arr = task3Input.value.split(":");
+  arr.forEach((e) => (temp += Number(e)));
+  console.log(temp / arr.length);
+});
