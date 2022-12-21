@@ -17,7 +17,7 @@ const mySetTimeoutAsync = async (ms) => {
   return await temp;
 };
 
-// mySetTimeoutAsync(6000).then(() => alert("Async here"));
+mySetTimeoutAsync(6000).then(() => alert("Async here"));
 
 //task2:
 
