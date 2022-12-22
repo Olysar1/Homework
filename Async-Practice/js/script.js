@@ -220,5 +220,9 @@ const makeDeepClone = function (userArr) {
 };
 
 ////
-
-function clone(arr) {}
+function clone(arr) {
+  return new Promise((resolve, reject) => {
+    if (typeof arr !== "object") return reject("input is not an object");
+    resolve(makeDeepClone(arr));
+  });
+}
