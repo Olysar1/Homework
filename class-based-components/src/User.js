@@ -1,11 +1,33 @@
-const User = ({ name, onChange, removeUser }) => {
-  return (
-    <div className="user-item">
-      <input type="text" value={name} onChange={onChange} />
-      <p>Name: {name}</p>
-      <button onClick={removeUser}>Remove This User</button>
-    </div>
-  );
-};
+import { PureComponent } from "react";
+
+class User extends PureComponent {
+  handleResize = () => {
+    console.log("handleResize: " + this.props.name);
+  };
+
+  componentDidMount = () => {
+    window.addEventListener("resize", this.handleResize);
+  };
+
+  componentWillUnmount = () => {
+    window.removeEventListener("resize", this.handleResize);
+  };
+
+  render() {
+    const { name, onChange, removeUser, index } = this.props;
+    console.log("render->User: " + name);
+    return (
+      <div className="user-item">
+        <input
+          type="text"
+          value={name}
+          onChange={(event) => onChange(event, index)}
+        />
+        <p>Name: {name}</p>
+        <button onClick={() => removeUser(index)}>Remove This User</button>
+      </div>
+    );
+  }
+}
 
 export default User;
