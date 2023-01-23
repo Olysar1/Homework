@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+
+.Night {
+  text-align: center;
+  background-color: #404258;
+  color: #f3efe0b3;
+  border-color: #353641;
+  border-radius: 4px;
+}
