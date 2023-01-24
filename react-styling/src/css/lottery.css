@@ -1,0 +1,30 @@
+.lottery {
+  border: 2px dashed grey;
+  width: 600px;
+  margin: 100px auto;
+  padding: 40px 0 20px 0;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.lottery-item-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lottery-item {
+  width: 80px;
+  height: 80px;
+  background-color: lime;
+  border-radius: 50%;
+  text-align: center;
+  margin: 0 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 32px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
