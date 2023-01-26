@@ -20,6 +20,7 @@ const ToDo = ({ setToDoList, toDoItem }) => {
           } else if (e.target.value === "undo") {
             return { task: item.task, status: "planned", id: item.id };
           }
+        return { task: item.task, status: item.status, id: item.id };
       })
     );
   };
