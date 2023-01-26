@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import style from "../styles/Styles.module.css";
 import { v4 } from "uuid";
 
 const Form = ({ toDoList, setToDoList }) => {
@@ -11,7 +12,7 @@ const Form = ({ toDoList, setToDoList }) => {
   };
 
   const handleSubmit = () => {
-    console.log(toDo);
+    // console.log(toDo);
     if (toDo) {
       setToDoList([...toDoList, { task: toDo, status: "planned", id: v4() }]);
       setToDo("");
@@ -21,9 +22,14 @@ const Form = ({ toDoList, setToDoList }) => {
   };
 
   return (
-    <>
-      <input value={toDo} onChange={handleChange}></input>
+    <div className={style.formContainer}>
+      <input
+        className={style.inputStyle}
+        value={toDo}
+        onChange={handleChange}
+      ></input>
       <button
+        className={style.btnStyle}
         onClick={(e) => {
           e.preventDefault();
           handleSubmit();
@@ -31,8 +37,7 @@ const Form = ({ toDoList, setToDoList }) => {
       >
         Submit
       </button>
-      <h1>{toDo}</h1>
-    </>
+    </div>
   );
 };
 

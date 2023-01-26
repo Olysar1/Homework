@@ -1,0 +1,95 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inputStyle {
+  width: 100%;
+  max-width: 400px;
+  height: 30px;
+  margin-bottom: 10px;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: #f0cc17;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.listsContainerWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.listHeader {
+  font-weight: 37;
+  text-align: left;
+  width: 100%;
+  border-bottom-style: solid;
+  border-bottom-width: 2.5px;
+  margin: 0px;
+  padding-bottom: 20px;
+}
+
+.listsContainer {
+  background-color: #ffffff;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 30px 3px;
+  padding: 30px;
+}
+
+.ulStyle {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  margin-bottom: 0;
+}
+
+.toDoItemStyle {
+  list-style-type: none;
+  border: solid;
+  border-radius: 6px;
+  border-width: 1.5px;
+  border-left-width: 6px;
+  margin: 10px 0px;
+  padding: 10px;
+}
+
+.spanStyle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 5px;
+}
+
+.btnGroupStyle {
+  margin-top: 10px;
+  gap: 5px;
+
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btnStyle {
+  background-color: #ffffff;
+  border-style: solid;
+  border-width: 0.5px;
+  border-radius: 5px;
+  border-color: #f0cc17;
+  padding: 5px 7px;
+  cursor: pointer;
+  transition: background-color 0.6s ease-in-out;
+}
+
+.btnStyle:hover {
+  background-color: #bcdb96;
+}

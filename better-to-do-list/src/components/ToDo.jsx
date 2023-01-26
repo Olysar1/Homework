@@ -1,4 +1,5 @@
 import React from "react";
+import RenderItems from "./RenderItems";
 
 const ToDo = ({ setToDoList, toDoItem }) => {
   const handleDelete = () => {
@@ -7,7 +8,7 @@ const ToDo = ({ setToDoList, toDoItem }) => {
 
   const moveItem = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setToDoList((prev) =>
       prev.map((item) => {
         if (item.id === toDoItem.id)
@@ -25,57 +26,31 @@ const ToDo = ({ setToDoList, toDoItem }) => {
     );
   };
 
-  //   return (
-  //     <>
-  //       <li>{toDoItem.task}</li>
-  //     </>
-  //   );
-
   if (toDoItem.status === "planned") {
     return (
-      <>
-        <li>{toDoItem.task}</li>
-        <button value="start" onClick={moveItem}>
-          Start
-        </button>
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            handleDelete();
-          }}
-        >
-          Delete
-        </button>
-      </>
+      <RenderItems
+        toDoItem={toDoItem}
+        btn={["Start", "Delete"]}
+        moveItem={moveItem}
+        handleDelete={handleDelete}
+      />
     );
   } else if (toDoItem.status === "inProgress") {
     return (
-      <>
-        <li>{toDoItem.task}</li>
-        <button value="stop" onClick={moveItem}>
-          stop
-        </button>
-        <button value="finish" onClick={moveItem}>
-          Finish
-        </button>
-      </>
+      <RenderItems
+        toDoItem={toDoItem}
+        btn={["Stop", "Finish"]}
+        moveItem={moveItem}
+      />
     );
   } else if (toDoItem.status === "done") {
     return (
-      <>
-        <li>{toDoItem.task}</li>
-        <button value="undo" onClick={moveItem}>
-          Undo
-        </button>
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            handleDelete();
-          }}
-        >
-          Delete
-        </button>
-      </>
+      <RenderItems
+        toDoItem={toDoItem}
+        btn={["Undo", "Delete"]}
+        moveItem={moveItem}
+        handleDelete={handleDelete}
+      />
     );
   }
 };
