@@ -11,8 +11,9 @@ const Form = ({ toDoList, setToDoList }) => {
   };
 
   const handleSubmit = () => {
+    console.log(toDo);
     if (toDo) {
-      setToDoList([...toDoList, { task: toDo, completed: false, id: v4() }]);
+      setToDoList([...toDoList, { task: toDo, status: "planned", id: v4() }]);
       setToDo("");
     } else {
       alert("Please enter a task");

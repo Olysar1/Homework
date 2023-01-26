@@ -13,13 +13,18 @@ function App() {
       <h2>Olysar's To Do App</h2>
       <Form setToDoList={setToDoList} toDoList={toDoList} />
       <div className="lists-container">
+        {console.log(toDoList)}
         <RenderLists
           setToDoList={setToDoList}
-          toDoList={toDoList.filter((item) => item.completed === false)}
+          toDoList={toDoList.filter((item) => item.status === "planned")}
         />
         <RenderLists
           setToDoList={setToDoList}
-          toDoList={toDoList.filter((item) => item.completed === true)}
+          toDoList={toDoList.filter((item) => item.status === "inProgress")}
+        />
+        <RenderLists
+          setToDoList={setToDoList}
+          toDoList={toDoList.filter((item) => item.status === "done")}
         />
       </div>
     </div>
