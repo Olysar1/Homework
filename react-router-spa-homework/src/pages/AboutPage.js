@@ -15,7 +15,7 @@ const AboutPage = () => (
       choose how to represent him.
     </h3>
     <Link to="/" className="link-style">
-      Go Back
+      Home
     </Link>
   </div>
 );

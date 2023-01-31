@@ -1,10 +1,10 @@
-import { useParams } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import lion from "../labor-images/lion.png";
 import hydra from "../labor-images/hydra.png";
 import cerberus from "../labor-images/cerberus.png";
 import boar from "../labor-images/boar.png";
 
-const labors = {
+export const labors = {
   laborOne: {
     title: "The Nemean Lion",
     text: " In the town of Nemea, there was an invincible lion that brought devastation and fear to the town. Hercules was ordered to slay the lion and bring back his skin. Hercules was able to use his brute strength and clever bravery to choke the lion to death and bring the skin to Eurystheus.",
@@ -27,25 +27,20 @@ const labors = {
   },
 };
 
-const Labors = () => {
-  const params = useParams();
-  const item = labors[params.laborNum];
-
-  if (!item)
-    return (
-      <div className="info-page-style">
-        <h1>NOT FOUND</h1>
-        <h3>No such entry found.</h3>
-      </div>
-    );
-
+export const Labors = () => {
   return (
-    <div className="info-page-style">
-      <h1>{item.title}</h1>
-      <h2>{item.text}</h2>
-      <img src={item.img} alt="labor-image" />
+    <div className="labor-link-wrapper">
+      <Link to="/" className="link-style">
+        Home
+      </Link>
+      {Object.keys(labors).map((item, i) => {
+        return (
+          <Link to={`/labors/${item}`} className="labor-link-style" key={i}>
+            {labors[item].title}
+          </Link>
+        );
+      })}
+      <Outlet />
     </div>
   );
 };
-
-export default Labors;

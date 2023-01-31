@@ -8,8 +8,8 @@ const NavComponent = () => {
         <Link to="/about-hercules" className="link-style">
           About Hercules
         </Link>
-        <Link to="labor-num" className="link-style">
-          Labor
+        <Link to="/labors" className="link-style">
+          Labors
         </Link>
       </div>
     </div>

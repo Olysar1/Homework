@@ -1,6 +1,7 @@
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
-import Labors from "./pages/Labors";
+import { Labors } from "./pages/Labors";
+import LaborPage from "./pages/LaborPage";
 
 const routes = [
   {
@@ -13,7 +14,13 @@ const routes = [
   },
   {
     element: <Labors />,
-    path: ":laborNum",
+    path: "labors",
+    children: [
+      {
+        element: <LaborPage />,
+        path: ":laborNum",
+      },
+    ],
   },
 ];
 

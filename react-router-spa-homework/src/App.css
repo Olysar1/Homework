@@ -5,7 +5,7 @@
 body {
   background-image: url("./Background-img.png");
   background-size: 100%;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   margin-bottom: 50px;
 }
 
@@ -30,7 +30,7 @@ h1 {
   margin: 0 5px;
 }
 
-/* .link-wrapper {
+.link-wrapper {
   display: flex;
   flex-direction: row;
 }
@@ -44,10 +44,10 @@ h1 {
   color: #2e3546;
   margin: 5px 0;
   background-color: #c6934b;
-} */
+}
 
 .labor-link-wrapper {
-  margin: 160px;
+  /* margin: 160px; */
   display: flex;
   flex-direction: column;
   align-items: center;
