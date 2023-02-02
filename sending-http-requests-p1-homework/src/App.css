@@ -1,0 +1,49 @@
+input {
+  border-color: #f0cc16;
+  border-style: ridge;
+  border-radius: 5px;
+  border-width: 1.5px;
+}
+
+button {
+  border-radius: 5px;
+  border-width: 1px;
+  background-color: #3f704d;
+  color: antiquewhite;
+}
+
+ul {
+  padding: 0;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  list-style-type: none;
+}
+
+span {
+  display: flex;
+  width: fit-content;
+}
+
+.App {
+  text-align: center;
+}
+
+.list-wrapper {
+  margin: 50px 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-style {
+  margin: 10px, 20px;
+
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
