@@ -1,24 +1,30 @@
-import { useState } from "react";
+import { useRef } from "react";
 
-const Form = ({ onFormSubmit }) => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+const Form = ({ onFormSubmit, firstName, lastName }) => {
+  const firstNameRef = useRef();
+  const lastNameRef = useRef();
 
   const onSubmit = (event) => {
     event.preventDefault();
-    onFormSubmit(firstName, lastName);
+    if (firstNameRef.current && lastNameRef.current) {
+      onFormSubmit(firstNameRef.current.value, lastNameRef.current.value);
+    } else {
+      console.error("Some 'ref' was not defined");
+    }
   };
 
   return (
     <form>
       <input
         name="firstName"
-        onChange={(e) => setFirstName(e.target.value || "")}
+        ref={firstNameRef}
+        defaultValue={firstName}
         placeholder="First name"
       />
       <input
         name="lastName"
-        onChange={(e) => setLastName(e.target.value || "")}
+        ref={lastNameRef}
+        defaultValue={lastName}
         placeholder="Last name"
       />
       <button onClick={onSubmit}>Submit</button>
