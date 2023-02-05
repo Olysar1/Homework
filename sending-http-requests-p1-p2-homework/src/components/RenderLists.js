@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import BtnBroup from "./BtnGroup";
 
 const RenderLists = ({ colName, planList }) => {
@@ -8,7 +9,8 @@ const RenderLists = ({ colName, planList }) => {
         {planList.map((item) => (
           <li key={item.id}>
             <span>{item.task}</span>
-            <BtnBroup itemStatus={item.status} />
+            <Link to={`/task/${item.id}`}>edit</Link>
+            <BtnBroup item={item} />
           </li>
         ))}
       </ul>
