@@ -1,34 +1,14 @@
 import { Link } from "react-router-dom";
-import useFetchData from "../hooks/useFetchData";
-import useSendRequest from "../hooks/useSendRequest";
+import { themeIdToStringMap, useThemeContext } from "../contexts/ThemeContext";
+import { useUsersContext } from "../contexts/UserContext";
 
 const MainPage = () => {
-  const {
-    responseData,
-    resendRequest,
-    isLoading: isDataLoading,
-  } = useFetchData({
-    requestUrl: "/api/v1/users",
-    method: "GET",
-  });
-  const userList =
-    responseData?.items.map((item) => ({
-      firstName: item.firstName,
-      lastName: item.lastName,
-      id: item._uuid,
-    })) || [];
+  const { isDataLoading, isDeleteLoading, userList, deleteUser } =
+    useUsersContext();
 
-  const { sendRequest, isLoading } = useSendRequest({ method: "DELETE" });
+  const { themeCode } = useThemeContext();
 
-  const deleteUser = (userId) => {
-    sendRequest(null, `/api/v1/users/${userId}`)
-      .then(() => {
-        resendRequest();
-      })
-      .catch((error) => console.error(error));
-  };
-
-  if (isLoading || isDataLoading) return <p>Loading...</p>;
+  if (isDeleteLoading || isDataLoading) return <p>Loading...</p>;
 
   return (
     <div>
@@ -47,6 +27,7 @@ const MainPage = () => {
           </button>
         </p>
       ))}
+      <p>{themeIdToStringMap[themeCode]}</p>
     </div>
   );
 };

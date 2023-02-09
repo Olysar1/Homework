@@ -1,19 +1,40 @@
+import { Outlet } from "react-router-dom";
+import Header from "./components/Header";
+import ThemeContextProvider from "./contexts/ThemeContext";
+import UsersContextProvider from "./contexts/UserContext";
 import CreatePage from "./pages/CreatePage";
 import MainPage from "./pages/MainPage";
 import UpdatePage from "./pages/UpdatePage";
 
 const routes = [
   {
-    element: <MainPage />,
+    element: (
+      <div>
+        <ThemeContextProvider>
+          <Header />
+          <Outlet />
+        </ThemeContextProvider>
+      </div>
+    ),
     path: "/",
-  },
-  {
-    element: <CreatePage />,
-    path: "/user/create",
-  },
-  {
-    element: <UpdatePage />,
-    path: "/user/:userId",
+    children: [
+      {
+        element: (
+          <UsersContextProvider>
+            <MainPage />
+          </UsersContextProvider>
+        ),
+        index: true,
+      },
+      {
+        element: <CreatePage />,
+        path: "user/create",
+      },
+      {
+        element: <UpdatePage />,
+        path: "user/:userId",
+      },
+    ],
   },
 ];
 
