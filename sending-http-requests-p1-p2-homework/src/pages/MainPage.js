@@ -1,30 +1,26 @@
-import useFetchData from "../hooks/useFetchData";
 import RenderLists from "../components/RenderLists";
+import { languages, useLanguageContext } from "../contexts/LanguageContext";
+import { useTaskContext } from "../contexts/TasksContext";
 
 const MainPage = () => {
-  const { responseData } = useFetchData({
-    requestUrl: "/api/v1/task",
-    method: "GET",
-  });
-  const planList =
-    responseData?.items.map((item) => ({
-      task: item.task,
-      status: item.status,
-      id: item._uuid,
-    })) || [];
+  const { planList, isLoading } = useTaskContext();
+
+  const { language } = useLanguageContext();
+
+  if (isLoading) return <h2>Loading...</h2>;
 
   return (
     <div className="list-wrapper">
       <RenderLists
-        colName={"Planned"}
+        colName={languages[language].planned}
         planList={planList.filter((item) => item.status === "planned")}
       />
       <RenderLists
-        colName={"In Progress"}
+        colName={languages[language].progress}
         planList={planList.filter((item) => item.status === "inProgress")}
       />
       <RenderLists
-        colName={"Done"}
+        colName={languages[language].done}
         planList={planList.filter((item) => item.status === "done")}
       />
     </div>

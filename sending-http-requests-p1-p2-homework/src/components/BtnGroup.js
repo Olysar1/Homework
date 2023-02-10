@@ -1,7 +1,10 @@
 import useRequest from "../hooks/useRequest";
 import { API_KEY } from "../config";
+import { languages, useLanguageContext } from "../contexts/LanguageContext";
 
 const BtnBroup = ({ item }) => {
+  const { language } = useLanguageContext();
+
   const { request } = useRequest({
     requestUrl: `/api/v1/task/${item.id}`,
     method: "PUT",
@@ -49,10 +52,10 @@ const BtnBroup = ({ item }) => {
     return (
       <div>
         <button value={"start"} onClick={moveItems}>
-          Start
+          {languages[language].start}
         </button>
         <button value={"delete"} onClick={moveItems}>
-          Delete
+          {languages[language].delete}
         </button>
       </div>
     );
@@ -60,10 +63,10 @@ const BtnBroup = ({ item }) => {
     return (
       <div>
         <button value={"stop"} onClick={moveItems}>
-          Stop
+          {languages[language].stop}
         </button>
         <button value={"finish"} onClick={moveItems}>
-          Finish
+          {languages[language].finish}
         </button>
       </div>
     );
@@ -71,10 +74,10 @@ const BtnBroup = ({ item }) => {
     return (
       <div>
         <button value={"undo"} onClick={moveItems}>
-          Undo
+          {languages[language].undo}
         </button>
         <button value={"delete"} onClick={moveItems}>
-          Delete
+          {languages[language].delete}
         </button>
       </div>
     );

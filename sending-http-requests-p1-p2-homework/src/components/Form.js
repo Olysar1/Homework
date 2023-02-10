@@ -1,7 +1,10 @@
 import { useRef } from "react";
+import { languages, useLanguageContext } from "../contexts/LanguageContext";
 
 const Form = ({ taskSubmit, taskItem }) => {
   const itemRef = useRef();
+
+  const { language } = useLanguageContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,9 +20,9 @@ const Form = ({ taskSubmit, taskItem }) => {
       <input
         ref={itemRef}
         defaultValue={taskItem}
-        placeholder="Enter Plan Here"
+        placeholder={languages[language].placeholder}
       />
-      <button onClick={handleSubmit}>Submit Task</button>
+      <button onClick={handleSubmit}>{languages[language].submit}</button>
     </div>
   );
 };
