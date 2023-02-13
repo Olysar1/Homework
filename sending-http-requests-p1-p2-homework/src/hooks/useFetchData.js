@@ -34,7 +34,7 @@ const useFetchData = ({ requestUrl, method }) => {
     sendRequest();
   }, [sendRequest]);
 
-  return { responseData, responseError, isLoading };
+  return { responseData, responseError, isLoading, sendRequest };
 };
 
 export default useFetchData;

@@ -6,7 +6,7 @@ import useFetchData from "../hooks/useFetchData";
 const EditTaskPage = () => {
   const navigate = useNavigate();
   const { taskId } = useParams();
-  const { responseData, responseError, isLoading } = useFetchData({
+  const { responseData, responseError, isLoading, sendRequest } = useFetchData({
     requestUrl: `/api/v1/task/${taskId}`,
   });
 
