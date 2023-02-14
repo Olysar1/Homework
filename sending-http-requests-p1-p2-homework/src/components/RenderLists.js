@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { languages, useLanguageContext } from "../contexts/LanguageContext";
 import BtnBroup from "./BtnGroup";
 
-const RenderLists = ({ colName, planList }) => {
+const RenderLists = ({ colName, planList, sendRequest }) => {
   const { language } = useLanguageContext();
 
   return (
@@ -15,7 +15,7 @@ const RenderLists = ({ colName, planList }) => {
             <Link to={`/task/${item.id}`} className="router-link-style">
               {languages[language].edit}
             </Link>
-            <BtnBroup item={item} />
+            <BtnBroup sendRequest={sendRequest} item={item} />
           </li>
         ))}
       </ul>

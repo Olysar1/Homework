@@ -2,7 +2,7 @@ import useRequest from "../hooks/useRequest";
 import { API_KEY } from "../config";
 import { languages, useLanguageContext } from "../contexts/LanguageContext";
 
-const BtnBroup = ({ item }) => {
+const BtnBroup = ({ sendRequest, item }) => {
   const { language } = useLanguageContext();
 
   const { request } = useRequest({
@@ -28,7 +28,7 @@ const BtnBroup = ({ item }) => {
 
     if (e.target.value !== "delete") {
       request({ status: defineStatus(e.target.value) })
-        .then((data) => console.log(data))
+        .then((data) => sendRequest())
         .catch((error) => {
           console.error(error);
         });
@@ -44,6 +44,7 @@ const BtnBroup = ({ item }) => {
           if (!response.ok) throw new Error("Something went wrong");
           return response.json();
         })
+        .then((data) => sendRequest())
         .catch((error) => console.error(error));
     }
   };

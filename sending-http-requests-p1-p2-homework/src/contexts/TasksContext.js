@@ -4,7 +4,7 @@ import useFetchData from "../hooks/useFetchData";
 const TasksContext = createContext(null);
 
 const TasksContextProvider = ({ children }) => {
-  const { responseData, isLoading } = useFetchData({
+  const { responseData, isLoading, sendRequest } = useFetchData({
     requestUrl: "/api/v1/task",
     method: "GET",
   });
@@ -19,8 +19,8 @@ const TasksContextProvider = ({ children }) => {
   }, [responseData]);
 
   const contextValue = useMemo(
-    () => ({ planList, isLoading }),
-    [planList, isLoading]
+    () => ({ planList, isLoading, sendRequest }),
+    [planList, isLoading, sendRequest]
   );
 
   return (
