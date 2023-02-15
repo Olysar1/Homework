@@ -1,11 +1,17 @@
 import { useSelector } from "react-redux";
-import { selectorTodoList } from "./store/todo/todo.selectors";
+import {
+  selectorTodoList,
+  selectorTodoListCount,
+} from "./store/todo/todoSlice";
 
 function ToDoList() {
   const toDoList = useSelector(selectorTodoList);
+  const toDoListCount = useSelector(selectorTodoListCount);
 
   return (
     <div>
+      <h2>TODO count</h2>
+      {toDoListCount}
       <h3>TODO LIST</h3>
       {toDoList.map((item, index) => {
         return (
