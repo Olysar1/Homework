@@ -6,6 +6,7 @@ import {
 
 function ToDoList() {
   const toDoList = useSelector(selectorTodoList);
+  console.log(selectorTodoList);
   const toDoListCount = useSelector(selectorTodoListCount);
 
   return (

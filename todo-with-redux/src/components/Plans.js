@@ -1,16 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
-import { deletePlanAction, movePlanAction } from "../store/todo/plan.actions";
+import { deletePlan, movePlan } from "../store/todo/planSlice";
+import { selectorPlans } from "../store/todo/planSlice";
 
 const Plans = () => {
-  const planList = useSelector((state) => state.plan.planList);
+  const planList = useSelector(selectorPlans);
   const dispatch = useDispatch();
 
   const handleDelete = (id) => {
-    dispatch(deletePlanAction(id));
+    dispatch(deletePlan(id));
   };
 
   const handleButtons = (id) => {
-    dispatch(movePlanAction(id));
+    dispatch(movePlan(id));
   };
 
   return (

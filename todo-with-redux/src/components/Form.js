@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addToPlansAction } from "../store/todo/plan.actions";
+import { addPlan } from "../store/todo/planSlice";
 
 const Form = () => {
   const [value, setValue] = useState("");
   const dispatch = useDispatch();
 
   const handleAddPlan = () => {
-    dispatch(addToPlansAction(value));
+    dispatch(addPlan(value));
     setValue("");
   };
 
